@@ -29,9 +29,10 @@ public class MemberService {
         return member.getId();
     }
 
+    //중복 회원 검증 메서드
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())//Optional으로 감쌈
-                .ifPresent(m -> { //Optional 안 멤버객체 -> ifPresent = null이 아닐 경우 동작 , get()으로 꺼낼 수 있음
+                .ifPresent(m -> {                    //Optional 안 멤버객체 - ifPresent = null이 아닐 경우 동작 , get()으로 꺼낼 수 있음
                 throw new IllegalStateException("이미 존재하는 회원입니다.");
             });
     }

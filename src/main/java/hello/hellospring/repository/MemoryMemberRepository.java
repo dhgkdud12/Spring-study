@@ -13,8 +13,8 @@ public class MemoryMemberRepository implements MemberRepository{
 
     @Override
     public Member save(Member member) {
-        member.setId(++sequence);
-        store.put(member.getId(),member);
+        member.setId(++sequence); // id 세팅
+        store.put(member.getId(),member); // store에 저장
         return member;
     }
 
@@ -27,8 +27,8 @@ public class MemoryMemberRepository implements MemberRepository{
     @Override
     public Optional<Member> findByName(String name) {
         return store.values().stream()
-                .filter(member -> member.getName().equals(name))
-                .findAny();
+                .filter(member -> member.getName().equals(name)) //name과 같은 것만 걸러냄
+                .findAny(); //리턴
     }
 
     @Override
