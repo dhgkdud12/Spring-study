@@ -9,13 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service //회원 서비스 스프링 빈 등록
+//@Service //회원 서비스 스프링 빈 등록
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    @Autowired
-    public MemberService(MemoryMemberRepository memberRepository){
-
+    //@Autowired
+    public MemberService(MemberRepository memberRepository){
         this.memberRepository = memberRepository;
     }
 
